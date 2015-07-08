@@ -11,7 +11,7 @@ public class BikeAnimation : MonoBehaviour
 
     protected Animator animator;
 
-
+	public float crashDistance = 1f;
 	public int bikeId;
 
     public bool ikActive = false;
@@ -121,7 +121,7 @@ public class BikeAnimation : MonoBehaviour
 		layerMask = ~(1 << LayerMask.NameToLayer("Bike"));
 		//layerMask = ~layerMask;
 
-        if (Physics.Raycast(eventPoint.position, dir, out hit, 1.0f, layerMask) && BikeScript.speed > 120)
+        if (Physics.Raycast(eventPoint.position, dir, out hit, crashDistance, layerMask) && BikeScript.speed > 110)
         {
 			//TODO:rewrite if need to crash bike
 			string l = LayerMask.LayerToName(hit.transform.gameObject.layer);
