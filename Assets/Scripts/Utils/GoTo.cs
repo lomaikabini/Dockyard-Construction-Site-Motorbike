@@ -8,13 +8,13 @@ public class GoTo : MonoBehaviour {
 
 	public static void LoadNewShop()
 	{
-		Application.LoadLevel ("new_shop 1");
-		currentScene = "new_shop 1";
+		Application.LoadLevel ("new_shop");
+		currentScene = "new_shop";
 	}
 
 	public static void LoadMegaCity()
 	{
-		Application.LoadLevel ("main_game_megaCity");
+		Application.LoadLevel ("main_game_construction");
 		currentScene = "main_game_megaCity";
 	}
 

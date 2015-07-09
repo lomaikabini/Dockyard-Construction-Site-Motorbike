@@ -37,14 +37,14 @@ public class ShopNew : MonoBehaviour {
 	{
 
 		data = GameData.Get ();
-		//curBike = data.currentBike;
-//		curBike = getLastOpenedBike ();
-//		cam.target = bikes [curBike].transform;
-//		cashView.text = "Points: " + data.cash.ToString ();
-//		bikeInfo.text = bikeNames [curBike];
-//		chooseBike (curBike);
-//		showStatistic (curBike);
-//		showInfo ();
+		curBike = data.currentBike;
+		curBike = getLastOpenedBike ();
+		cam.target = bikes [curBike].transform;
+		cashView.text = "Points: " + data.cash.ToString ();
+		bikeInfo.text = bikeNames [curBike];
+		chooseBike (curBike);
+		showStatistic (curBike);
+		showInfo ();
 	}
 
 	void Update()
@@ -194,13 +194,13 @@ public class ShopNew : MonoBehaviour {
 	{
 		isAction = false;
 		choisePopup.SetActive (false);
-		itmsObj.SetActive (true);
+		//itmsObj.SetActive (true);
 	}
 	public void closeClosePopup()
 	{
 		isAction = false;
 		closePopup.SetActive (false);
-		itmsObj.SetActive (true);
+		//itmsObj.SetActive (true);
 	}
 
 	public void menuClick()
@@ -208,7 +208,7 @@ public class ShopNew : MonoBehaviour {
 		if(isAction) return;
 		isAction = true;
 		closePopup.SetActive (true);
-		itmsObj.SetActive (false);
+		//itmsObj.SetActive (false);
 	}
 	public void goMainMenu()
 	{
@@ -218,7 +218,7 @@ public class ShopNew : MonoBehaviour {
 
 	public void ChoiseBikeFromAll(GameObject obj)
 	{
-		itmsObj.SetActive (false);
+		//itmsObj.SetActive (false);
 		curBike = System.Convert.ToInt32 (obj.name) - 1;
 		areaClick ();
 	}
