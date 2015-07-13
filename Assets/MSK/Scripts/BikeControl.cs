@@ -529,8 +529,9 @@ public class BikeControl : MonoBehaviour
 
         MotorRotation = Mathf.LerpAngle(MotorRotation, steer2 * bikeSetting.maxTurn * (Mathf.Clamp(speed / 100, 0.0f, 1.0f)), Time.deltaTime * 5.0f);
 
+		//TODO: pofiksit' eott kof
         if (bikeSetting.bikeSteer)
-            bikeSetting.bikeSteer.localRotation = SteerRotation * Quaternion.Euler(0, wheels[0].collider.steerAngle, 0); // this is 90 degrees around y axis
+            bikeSetting.bikeSteer.localRotation = SteerRotation * Quaternion.Euler(0, (wheels[0].collider.steerAngle*1.5f), 0); // this is 90 degrees around y axis
 
         if (!crash)
         {
