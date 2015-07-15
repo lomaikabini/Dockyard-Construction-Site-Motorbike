@@ -146,8 +146,9 @@ public class BikeManager : MonoBehaviour {
 		targetBike.rigidbody.isKinematic = false;
 		targetBike.transform.GetComponent<BikeGUI> ().enabled = true;
 		targetBike.gameObject.SetActive (true);
-		Transform[] positionView = {targetBike.transform.FindChild("Components").FindChild("ForestView").FindChild("View-2").transform/*,
-			targetBike.FindChild("Components").FindChild("ForestView").FindChild("View-3").transform*/};
+		Transform[] positionView = {targetBike.transform.FindChild("Components").FindChild("ForestView").FindChild("View-1").transform,
+			targetBike.transform.FindChild("Components").FindChild("ForestView").FindChild("View-2").transform,
+			targetBike.transform.FindChild("Components").FindChild("ForestView").FindChild("View-3").transform};
 		cam.cameraSwitchView = positionView;
 	}
 
