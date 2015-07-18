@@ -5,6 +5,9 @@ using System.Collections.Generic;
 
 public class BikeControl : MonoBehaviour
 {
+	public ParticleSystem wheelParticle;
+	[HideInInspector]
+	public bool showBrakeParticles = false;
 	bool useTilt = false;
 
 	bool moveUp = false;
@@ -303,6 +306,7 @@ public class BikeControl : MonoBehaviour
 
     void Start()
     {
+		wheelParticle.enableEmission = false;
 
         SteerRotation = bikeSetting.bikeSteer.localRotation;
         wheels = new WheelComponent[2];
@@ -512,6 +516,15 @@ public class BikeControl : MonoBehaviour
 		#endif
         foreach (Light brakeLight in bikeLights.brakeLights)
         {
+			Debug.Log(wheels[1].collider.name);
+			if(accel < 0 && speed > 11f && showBrakeParticles && wheels[1].collider.isGrounded)
+			{
+				wheelParticle.enableEmission = true;
+			}
+			else
+				wheelParticle.enableEmission = false;
+
+
             if (accel < 0 || speed < 1.0f)
             {
                 brakeLight.intensity = Mathf.Lerp(brakeLight.intensity, 8, 0.1f);

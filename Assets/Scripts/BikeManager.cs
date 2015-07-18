@@ -187,6 +187,7 @@ public class BikeManager : MonoBehaviour {
 			bikesContols[i].ReleaseMoveRightBtn();
 			bikesContols[i].ReleaseMoveUpBtn();
 			bikesContols[i].ReleaseNitroBtn();
+			bikesContols[i].showBrakeParticles = false;
 		}
 	}
 
@@ -217,10 +218,24 @@ public class BikeManager : MonoBehaviour {
 
 	public void PressMoveDownBtn()
 	{
+		bikesContols [data.currentBike].bikeSetting.brakePower = 800f;
 		bikesContols [data.currentBike].PressMoveDownBtn();
 	}
 	public void ReleaseMoveDownBtn()
 	{
+		bikesContols [data.currentBike].ReleaseMoveDownBtn ();
+	}
+
+	public void PreesBrakeBtn()
+	{
+		bikesContols [data.currentBike].showBrakeParticles = true;
+		bikesContols [data.currentBike].bikeSetting.brakePower = 400f;
+		bikesContols [data.currentBike].PressMoveDownBtn();
+	}
+
+	public void ReleaseBrakeBtn()
+	{
+		bikesContols [data.currentBike].showBrakeParticles = false;
 		bikesContols [data.currentBike].ReleaseMoveDownBtn ();
 	}
 
