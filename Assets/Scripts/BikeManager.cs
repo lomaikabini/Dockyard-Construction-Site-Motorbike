@@ -229,7 +229,7 @@ public class BikeManager : MonoBehaviour {
 	public void PreesBrakeBtn()
 	{
 		bikesContols [data.currentBike].showBrakeParticles = true;
-		bikesContols [data.currentBike].bikeSetting.brakePower = 400f;
+		bikesContols [data.currentBike].bikeSetting.brakePower = 100f;
 		bikesContols [data.currentBike].PressMoveDownBtn();
 	}
 

@@ -211,7 +211,6 @@ public class BikeControl : MonoBehaviour
         WheelCollider col = (WheelCollider)wheelCol.AddComponent(typeof(WheelCollider));
 		//TODO: rewrite if we got some problem with wheels size
         //col.transform.localScale = wheel.localScale;
-
 		float cof;
 		if(wheel.parent.localScale.x == 1f)
 			cof = wheel.localScale.x;
@@ -336,12 +335,12 @@ public class BikeControl : MonoBehaviour
             fc.asymptoteValue = 5000.0f;
             fc.extremumSlip = 2.0f;
             fc.asymptoteSlip = 20.0f;
-            fc.stiffness = bikeSetting.stiffness;
+			fc.stiffness = bikeSetting.stiffness;
             col.forwardFriction = fc;
             fc = col.sidewaysFriction;
             fc.asymptoteValue = 7500.0f;
             fc.asymptoteSlip = 2.0f;
-            fc.stiffness = bikeSetting.stiffness;
+			fc.stiffness =bikeSetting.stiffness;
             col.sidewaysFriction = fc;
 
         }
@@ -516,8 +515,7 @@ public class BikeControl : MonoBehaviour
 		#endif
         foreach (Light brakeLight in bikeLights.brakeLights)
         {
-			Debug.Log(wheels[1].collider.name);
-			if(accel < 0 && speed > 11f && showBrakeParticles && wheels[1].collider.isGrounded)
+			if(/*accel < 0 &&*/ speed > 11f && showBrakeParticles && wheels[1].collider.isGrounded)
 			{
 				wheelParticle.enableEmission = true;
 			}
