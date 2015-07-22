@@ -157,7 +157,7 @@ public class BikeControl : MonoBehaviour
     [HideInInspector]
     public float speed = 0.0f;
 
-    private float lastSpeed = -10.0f;
+    private float lastSpeed = -15.0f;
 
     // table of efficiency at certain RPM, in tableStep RPM increases, 1.0f is 100% efficient
     // at the given RPM, current table has 100% at around 2000RPM
@@ -776,7 +776,8 @@ public class BikeControl : MonoBehaviour
             if (w.drive)
             {
                 // only set torque if wheel goes slower than the expected speed
-                if (Mathf.Abs(col.rpm) > Mathf.Abs(wantedRPM) || (currentGear == 0 && speed > 10))
+				//TODO: zdes' skorost' reversa
+                if (Mathf.Abs(col.rpm) > Mathf.Abs(wantedRPM) || (currentGear == 0 && speed > 15))
                 {
                     // wheel goes too fast, set torque to 0
                     col.motorTorque = 0;
